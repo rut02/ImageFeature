@@ -18,10 +18,12 @@ def base642img(str_img):
 def root():
         return {"message": "This is my api"}
 
-@app.get("/api/hog")
+@app.post("/api/hog")
 async def read_str(data : Request):
     json = await data.json()
     item_str = json['img']
     img = base642img(item_str)
     hog = hog_des(img)
     return {'hog':hog.tolist()}
+
+
